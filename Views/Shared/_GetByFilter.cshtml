@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RestaurantApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @*<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />*@
+    <link rel="stylesheet" href="~/RestaurantApp.styles.css" asp-append-version="true" />
+  <style>
+      body {  
+   
+    background:url(https://images.pexels.com/photos/64208/pexels-photo-64208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+} 
+
+ header {
+    width: 100%;
+    height: 57px;
+    background: linear-gradient(45deg, rgba(222,197,5,1) 24%, rgba(255,107,0,1) 100%);
+    position: fixed;
+    top: 0;
+}
+
+footer {
+    width: 100%;
+    height: 60px;
+    background:linear-gradient(45deg, rgba(222,197,5,1) 24%, rgba(255,107,0,1) 100%);
+    position: fixed;
+    bottom: 0;
+}
+input{
+    width: 50%;
+    border-radius: 30px;
+    border: none;
+    height: 2em;
+    font-size: 15px;
+    margin: 10px 0;
+    padding: 0 30px;
+}
+ body {
+
+    margin-top: 80px; 
+
+}
+.search-container{
+    height: 30px;
+     width: 500px;
+}
+.search-container {
+     position: absolute;
+     top: 0px;
+     left: 500px;
+}
+
+</style> 
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3 ">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+<img src="https://cdn.vectorstock.com/i/1000x1000/39/43/blue-white-s-letter-with-crown-logo-template-vector-36103943.webp" width="25" height="25" alt="SviggyLogo" />                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Registration" asp-action="RegisterRestaurant">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <div class="search-container">
+                                    <form class="navbar-form navbar-left" asp-action="SearchByFilter" asp-controller="Items" method="post" >
+                                            <input type="text" placeholder="FilterByItemName" name="search">
+                                     </form>
+                            </div>                       
+                        </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Items" asp-action="BackToRestaurant">BackToRestaurantMenu</a>
+                        </li>
+
+                        
+
+                    </ul>
+               
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+&copy; 2022 - Sviggy- Ahmedabad | Banglore | Chennai | Hyderabad | Tirupati | <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

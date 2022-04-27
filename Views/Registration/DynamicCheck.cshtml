@@ -1,0 +1,114 @@
+﻿@model RestaurantApp.Models.DynamicCheck
+@using RestaurantApp.Models
+@*@{  
+    ViewBag.Title = "Dynamically adding rows to table";  
+}  *@
+  @*<script type="text/javascript">  
+        function ValidateData()
+        {  
+            if ( $(".validateItemName").attr('value') == "") 
+            {  
+                alert("Enter ItemName ");  
+                return false;  
+            }  
+            else if ($(".validateItemDescription").attr('value') == "")
+            {  
+                alert(" Enter name of employee.");  
+                return false;  
+            }  
+            else if ($(".validatePrice").attr('value') == "") 
+            {  
+                alert("Enter Contact number of Employee.");  
+                return false;  
+            }  
+            else if ($(".validateIsveg").attr('value') == "")
+            {  
+                alert("Enter address of employee.");  
+                return false;  
+            }  
+            return true;  
+        }  
+    </script>  
+    @using (Html.BeginForm("DynamicCheck", "Registration"))  
+    {  
+        <html>  
+        <head>  
+            <style>  
+               * {  
+                   padding: 0px;  
+                    margin: 0px;  
+                }  
+            </style>  
+        </head>  
+        <body>  
+            <div style="text-align:center;">  
+                <table cellpadding="3" cellspacing="0" border="1" style="border-color:Black;border-collapse:collapse; text-align:center; width:20%;">  
+                    <tr style="font-weight: bold; background-color: #c19191; height: 20px;">  
+                        <td>S.No</td>  
+                        <td>Food Name</td>  
+                        <td>Short Description</td>  
+                        <td>Photo</td>  
+                        <td>Price</td>  
+                        <td>Yes</td>  
+                    </tr>  
+                    @for (int a = 0; a < Model.FoodItems.Count; a++)  
+                    {  
+                       <tr>  
+                            <td style="width:20%;">@Html.TextBoxFor(m => m.FoodItems[a].ItemName, new { @class = "validateItemName" })</td>  
+                            <td style="width:20%;">@Html.TextBoxFor(m => m.FoodItems[a].ItemDescription, new { @class = "validateItemDescription" })</td>  
+                            <td style="width:20%;">@Html.TextBoxFor(m => m.FoodItems[a].ImgSource, new { @class = "validatePhoto" })</td>  
+                            <td style="width:20%;">@Html.TextBoxFor(m => m.FoodItems[a].ItemPrice, new { @class = "validatePrice" })</td>  
+                            <td style="width:20%;">@Html.TextBoxFor(m => m.FoodItems[a].IsVeg, new { @class = "validateIsveg" })</td>  
+                        </tr>  
+                    }   
+                   <tr>  
+                       <td colspan="2">  
+                            <input type="submit" value="Add New Data" title="Add New Data" onclick="javascript:return ValidateData();" />  
+                        </td>  
+                    </tr>  
+                </table>  
+            </div>  
+        </body>  
+    </html>   
+    }  
+</html> *@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
